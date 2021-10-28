@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block body %}
+<head>
+<style>
+body{
+    background:#f8f8f8;
+}
+
+.ui-w-100 {
+    width: 100px !important;
+    height: auto;
+}
+
+.card {
+    background-clip: padding-box;
+    box-shadow: 0 1px 4px rgba(24,28,33,0.012);
+}
+
+.user-view-table td:first-child {
+    width: 9rem;
+}
+.user-view-table td {
+    padding-right: 0;
+    padding-left: 0;
+    border: 0;
+}
+
+.text-light {
+    color: #babbbc !important;
+}
+
+.card .row-bordered>[class*=" col-"]::after {
+    border-color: rgba(24,28,33,0.075);
+}    
+
+.text-xlarge {
+    font-size: 170% !important;
+}
+</style>
+</head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="container bootdey flex-grow-1 container-p-y">
+            <h1 style="padding:50px;"><b></b></h1>
+            <div class="media align-items-center py-3 mb-3">
+              <img src="/static/hospital.png" alt="" class="d-block ui-w-100 rounded-circle">
+              <div class="media-body ml-4">
+                <h4 class="font-weight-bold mt-1"> Welcome {{request.user.name}}!</h4>
+                <a href="{% url 'update_profile' %}" class="btn btn-sm" style="background-color: #EB4559; color:white;">Edit</a>&nbsp;
+                <a href="{%url 'logout' %}"" class="btn  btn-secondary btn-sm">Logout</a>&nbsp;
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                <table class="table user-view-table m-0">
+                  <tbody>
+                    <tr>
+                      <td>Registered:</td>
+                      <td>{{request.user.date_joined}}</td>
+                    </tr>
+                    <tr>
+                      <td>Latest activity:</td>
+                      <td>{{request.user.last_login}}</td>
+                    </tr>
+                    <tr>
+                      <td>Verified:</td>
+                      <td><span ><i class="fa fa-check text-success" aria-hidden="true"></i></span>&nbsp; Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Role:</td>
+                      <td>User</td>
+                    </tr>
+                    <tr>
+                      <td>Status:</td>
+                      <td>Active</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+
+            <div class="card">
+                
+                
+                
+              <hr class="border-light m-0">
+              <div class="card-body">
+              <h5 class="mt-4 mb-3">Hospital Information</h5>
+
+                <table class="table user-view-table m-0">
+                  <tbody>
+                    <tr>
+                      <td>Name:</td>
+                      <td>{{request.user.name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                      <td>Phone:</td>
+                      <td>{{user.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td>Address:</td>
+                      <td>{{user.address}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            
+
+              </div>
+            </div>
+            <hr class="border-light m-0">
+              <div class="table-responsive">
+                <table class="table card-table m-0">
+                  <tbody>
+                    <tr>
+                      <th>Healthcare Services</th>
+                      <th>Total</th>
+                      <th>Vacant</th>
+                      <th>Occupied</th>
+                    </tr>
+                    <tr>
+                      <td>Covid Beds</td>
+                      <td><span>{{user.profile.t_covid_beds}}</span></td>
+                      <td><span>{{user.profile.v_covid_beds}}</span></td>
+                      <td><span>{{user.profile.o_covid_beds}}</span></td>
+                    </tr>
+                    <tr>
+                      <td>Ventilators</td>
+                      <td><span>{{user.profile.t_ventilators}}</span></td>
+                      <td><span>{{user.profile.v_ventilators}}</span></td>
+                      <td><span>{{user.profile.o_ventilators}}</span></td>
+                    </tr>
+                    <tr>
+                      <td>ICU Beds</td>
+                      <td><span>{{user.profile.t_icu_beds}}</span></td>
+                      <td><span>{{user.profile.v_icu_beds}}</span></td>
+                      <td><span>{{user.profile.o_icu_beds}}</span></td>
+                    </tr>
+                    <tr>
+                      <td>Oxygen Beds</td>
+                      <td><span>{{user.profile.t_oxygen_beds}}</span></td>
+                      <td><span>{{user.profile.v_oxygen_beds}}</span></td>
+                      <td><span>{{user.profile.o_oxygen_beds}}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+          <img src="/static/assets/img/shape/shape__white1.png" alt="" class="shape shape1">
+					<img src="/static/assets/img/shape/shape__white2.png" alt="" class="shape shape2">
+          <h1 style="padding:10px;"><b></b></h1>
+<!-- break point -->
+{% endblock body %}

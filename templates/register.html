@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock title %}
+{% block body %}
+<head>
+<style>
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IiIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ1NDg0ZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(center, ellipse cover, #45484d 0%, #000000 100%);
+  background-image: -webkit-radial-gradient(center, ellipse cover, #45484d 0%, #000000 100%);
+  background-image: radial-gradient(ellipse cover at center, #45484d 0%, #000000 100%);
+  height: 100%;
+  font: "Helvetica Neue", Helvetica, arial, sans-serif;
+}
+
+.register {
+  background-color: #444;
+  bottom: 0;
+  box-shadow: inset 0.1rem 0 0.3rem rgba(0, 0, 0, 0.4), inset -0.1rem 0 0.3rem rgba(0, 0, 0, 0.4);
+  height: 29rem;
+  left: 0;
+  margin: auto;
+  margin-top: 85px;
+  padding: 1rem 4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25rem;
+}
+.register:before, .register:after {
+  background-color: #ccc;
+  border: 0.1rem solid #444;
+  color: #333;
+  content: '\f023  Register';
+  font-family: FontAwesome;
+  font-size: 3rem;
+  height: 14.5rem;
+  line-height: 1;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s all ease-in-out;
+  width: 100%;
+  z-index: 10;
+}
+.register:before {
+  border-bottom: 0;
+  line-height: 9.62;
+  top: 0;
+}
+.register:after {
+  border-top: 0;
+  bottom: 0;
+  line-height: 0;
+}
+
+.register:hover:after {
+  bottom: -14rem;
+  box-shadow: 0 -0.5rem 0.45rem -0.25rem rgba(0, 0, 0, 0.2);
+}
+.register:hover:before {
+  top: -14rem;
+  box-shadow: 0 0.5rem 0.45rem -0.25rem rgba(0, 0, 0, 0.2);
+}
+
+input {
+  height: 3rem;
+  outline: none;
+  width: 100%;
+}
+
+input[type="password"], input[type="email"] {
+  background: rgba(0, 0, 0, 0.2);
+  border: 0;
+  color: #fff;
+  margin: 0.5rem auto;
+  padding: 0.8rem;
+}
+
+input[type="submit"] {
+  background: #ccc;
+  border: 0;
+}
+</style>
+</head>
+<form class="register" autofill="false" method="POST" action="/register">
+  {% csrf_token %}
+  <input type="name" placeholder="Enter Hospital Name" name="name" required style="background: rgba(0, 0, 0, 0.2); width:60%;"/>
+  <input type="phone"  placeholder="Enter contact number" pattern= '^[789]\d{9}$' name="phone" required style="background: rgba(0, 0, 0, 0.2); width:60%; margin: 0.5rem auto;">
+  <textarea  placeholder="Enter Hospital Address" name="address" required style="background: rgba(0, 0, 0, 0.2); margin: 0.1rem auto; padding: 1rem; border:0 outline: none;"/></textarea>
+  <input type="email" placeholder="hospital@name.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" required/>
+  <input type="password"  placeholder="Password"  name="password1" required style="margin: 0.2rem auto; padding: 1rem; border:0 outline: none;"/>
+  <input type="password"  placeholder="Password"  name="password2" required style="margin: 0.2rem auto; padding: 1rem; border:0 outline: none;"/>
+  <label for="choose-file" style="color: #fff; margin: 0.2rem auto;">Upload Hospital Document</label>
+  <input type="file" id="choose-file" size="80" name="file" style="color: #fff;">
+  <input type="submit" value="Register"/>
+
+{% endblock body %}

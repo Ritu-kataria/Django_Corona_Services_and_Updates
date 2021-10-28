@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en"><!--HTML START-->
+
+<head><!--HEAD START-->
+    <!-- first load django static tag. -->
+    {% load static %}
+    <!--TITLE-->
+    <title>Home | Corona Services and Updates</title>
+
+    <!--::::: SUPPORT META :::::::-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+
+    <!--::::: CSS FILES:::::::-->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/stellarnav.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/space__grotesk.css' %}">
+    <link rel="stylesheet" href="{% static 'assets//css/typography.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/inner.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+</head><!--HEAD END-->
+
+<body><!--BODY START-->
+
+
+    <!--PRELAODER START-->
+     <div class="preloader">
+         <div class="preloader__container">
+            <img src="{% static 'assets/img/icon/big__virous.png' %}" alt="">
+         </div>
+     </div>
+    <!--PRELAODER END-->
+
+
+      <!--:::::HEADER AREA START :::::::-->
+      <div class="header__area header__absolute" id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-5 col-xl-3 align-self-center">
+                    <a href="/" class="logo"><img src="{% static 'assets/img/icon/big__virous.png' %}" alt="" width="10%" height="10%">Corona Services and Updates</a>
+                </div>
+                <div class="col-6 col-md-7 col-xl-6 text-center align-self-center">
+                    <div class="main__menu">
+                        <div class="stellarnav">
+                            <ul class="navclass" id="scroll">
+                                <li><a href="#home">Home</a>
+                                    <ul>
+                                        <li><a href="#about">About</a></li>
+                                        <li><a href="#symptoms">Symptoms</a></li>
+                                        <li><a href="#blog">State wise status</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/covid_hospitals">Covid-19 Hospitals</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                                <li><a href="/about">Guidelines</a></li>
+                                <li><a href="/login">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-3 col-xl-3 align-self-center text-right">
+                    <a href="/register" class="cbtn emergency_btn">
+                        <img class="btn__icon" src="{% static 'assets/img/icon/reg.png' %}" alt="" width="10%" height="10%"> 
+                        <img class="btn__hover__icon" src="{% static 'assets/img/icon/alert__phone__white.svg' %}" alt=""> 
+                            Register Hospital
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--::::: HEADER AREA END :::::::-->
+
+    <!--::::: WELCOME AREA START :::::::-->
+    <div class="welcome welcome1" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-lg-6">
+                    <div class="title wow fadeInLeft" data-wow-delay=".4s">
+                        <p class="title__top"><img src="{% static 'assets/img/icon/alert.svg' %}" alt="">Covid-19 Alert</p>
+                        <h1>Save yourself Save the world.</h1>
+                        <h4>Coronavirus disease (COVID-19) is an infectious <br> disease caused by a new virus.</h4>
+                        <div class="space-30"></div>
+                        <a href="#Symptoms" class="cbtn btn1">Check Symptoms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'assets/img/shape/shape__white1.png' %}" alt="" class="shape shape1">
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="shape shape2">
+
+
+        <div class="welcome_shapes wow fadeInRight">
+            <div class="welcome_shapes__wrap">
+                <img class="welcome__shape__bg " src="{% static 'assets/img/shape/hero__bg.png' %}" alt="">
+                <img class="welcome_shape welcome_shapes1" src="{% static 'assets/img/shape/hero1__people.png' %}" alt="">
+                <img class="welcome_shape welcome_shapes2" src="{% static 'assets/img/icon/big__virous.png' %}" alt="">
+                <img class="welcome_shape welcome_shapes3" src="{% static 'assets/img/icon/big__virous.png' %}" alt="">
+                <img class="welcome_shape welcome_shapes4" src="{% static 'assets/img/icon/big__virous.png' %}" alt="">
+            </div>
+        </div>
+
+    </div>
+    <!--::::: WELCOME AREA END :::::::-->
+
+
+    <!--::::: COUNTER AREA START :::::::-->
+    <div class="counter__area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="counters">
+                        <div class="counters__wrap">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3 text-center">
+                                    <div class="single__counter wow fadeInUp" data-wow-delay=".2s">
+                                        <h2 class="counter">{{ all }}</h2>
+                                        <p>Total Cases</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 text-center">
+                                    <div class="single__counter wow fadeInUp" data-wow-delay=".3s">
+                                        <h2 class="counter">{{ new }}</h2>
+                                        <p>New Cases</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 text-center">
+                                    <div class="single__counter ctype2 wow fadeInUp" data-wow-delay=".2s">
+                                        <h2 class="counter">{{ recovered }}</h2>
+                                        <p>Recovered Cases</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 text-center">
+                                    <div class="single__counter no__border wow fadeInUp" data-wow-delay=".4s">
+                                        <h2 class="counter">{{ deaths }}</h2>
+                                        <p>Deaths</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center wow fadeInUp">
+                                <div class="space-30"></div>
+                                    <h6 class="emergency">*** Updated less than 20 mins ago, Source: <a href="#">Wikipedia</a></h6>
+                                </div>
+                            </div>
+                            <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="counter__bg counter__bg1">
+                            <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="counter__bg counter__bg2">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--::::: COUNTER AREA END :::::::-->
+
+
+    <!--::::: ABOUT AREA START :::::::-->
+    <div class="about__area section-padding" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="about__img wow fadeInLeft">
+                        <img src="{% static 'assets/img/about/about__left.png' %}" alt="image">
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="about__text wow fadeInRight">
+                        <div class="title">
+                            <p class="title__top">About Covid-19</p>
+                            <h2>What is novel coronavirus?</h2>
+                            <h4>Coronavirus disease (COVID-19) is an infectious disease caused by a new virus. The disease causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing. <br> <br> You can protect yourself by washing your hands frequently, avoiding touching your face, and avoiding close contact (1 meter or 3 feet) distances with who are unwell. Get vaccinated when it’s your turn and follow local guidance.</h4>
+                            <div class="space-30"></div>
+                            <a href="#" class="cbtn btn1">Check Symptoms</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="about__shape about__shape1">
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="about__shape about__shape2">
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="about__shape about__shape3">
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="about__shape about__shape4">
+    </div>
+    <!--::::: ABOUT AREA END :::::::-->
+
+
+    <!--::::: SYMPTOMS AREA START :::::::-->
+    <div class="symptoms__area theme__bg1 section-padding2" id="symptoms">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="title wow fadeInLeft">
+                        <p class="title__top">Covid-19 Symptoms</p>
+                        <h2>What are the symptoms?</h2>
+                        <h4>COVID-19 symptoms range from mild to severe. It takes 2-14 days after exposure for symptoms to develop. Symptoms may include:</h4>
+                        <div class="space-30"></div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="points">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Hard Cough</li>
+                                        <li><i class="fas fa-check"></i> Fever</li>
+                                        <li><i class="fas fa-check"></i> Headache</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="points">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Resoiratory Distress</li>
+                                        <li><i class="fas fa-check"></i> Shortness of Breath</li>
+                                        <li><i class="fas fa-check"></i> Kidney Failure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-50"></div>
+                        <a href="#" class="cbtn btn1">Check Symptoms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'assets/img/about/symptoms.png' %}" alt="" class="symptom__bg wow fadeInRight">
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="symptom__shape symptom_1">
+        <img src="{% static 'assets/img/shape/shape__white2.png' %}" alt="" class="symptom__shape symptom_2">
+    </div>
+    <!--::::: SYMPTOMS AREA END :::::::-->
+
+
+    <!--::::: MAP AREA START :::::::-->
+    <div class="map__area section-padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-center m-auto">
+                    <div class="title wow fadeInDown">
+                        <p class="title__top">Covid-19 Data Visualization</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-50"></div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="mapimg wow zoomIn">
+                        <canvas id="myChart" width="200" height="200"></canvas>
+		<script>
+			const xlabels = [];
+			const yconfirmed = [];
+			const yrecovered = [];
+			const ydeaths = [];
+			chartIt();
+			
+			async function chartIt() {
+			await getData();
+			const ctx = document.getElementById('myChart').getContext('2d');
+			
+			const myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+				labels: xlabels,
+				datasets: [{
+				label: 'Daily Confirmed',
+				data: yconfirmed,
+				fill: true,
+				backgroundColor: 
+                'rgba(54, 162, 235, 0.2)',
+				borderColor: 
+                'rgba(54, 162, 235, 1)',
+				borderWidth: 1.3
+				},
+				{
+				label: 'Daily Recovered',
+				data: yrecovered,
+				fill: true,
+				backgroundColor: 
+                'rgba(75, 192, 192, 0.2)',
+				borderColor: 
+                'rgba(75, 192, 192, 1)',
+				borderWidth: 1.3
+				},
+				{
+				label: 'Daily Deaths',
+				data: ydeaths,
+				fill: true,
+				backgroundColor: 
+                'rgba(255, 99, 132, 0.2)',
+				borderColor: 
+                'rgba(255, 99, 132, 1)',
+				borderWidth: 1.3
+				}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true
+						}
+					}
+				}
+			});
+		}
+			
+			
+			async function getData() {
+				const response = await fetch('https://data.covid19india.org/csv/latest/case_time_series.csv');
+				const data = await response.text();
+				const table = data.split('\n').slice(1);
+				table.forEach(row => {
+					const columns = row.split(',');
+					const date = columns[0];
+					xlabels.push(date);
+					const confirmed = columns[2];
+					yconfirmed.push(confirmed);
+					const recovered = columns[4];
+					yrecovered.push(recovered);
+					const deaths = columns[6];
+					ydeaths.push(deaths);
+					console.log(date, confirmed, recovered, deaths);
+					
+				});
+			}
+		</script>
+                    </div>
+                    <div class="space-50"></div>
+                    <h6 class="emergency wow fadeInUp">*** Updated less than 20 mins ago.</h6>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="prevention__img prevention__img1">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="prevention__img prevention__img2">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="prevention__img prevention__img3">
+    </div>
+    <!--::::: MAP AREA END :::::::-->
+
+
+    <!--::::: CONTAGION AREA START :::::::-->
+    <div class="contagion theme__bg2 section-padding" id="contagion">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single__contagion wow fadeInUp" data-wow-delay=".3s">
+                                <div class="contagion__icon">
+                                    <img src="/static/assets/img/contagion/contagion1.png" alt="">
+                                </div>
+                                <h3>Animal Contact</h3>
+                                <p>Stay at home if you begin to feel unwell, even with mild symptoms nose.</p>
+                            </div>
+                            <div class="single__contagion wow fadeInUp" data-wow-delay=".5s">
+                                <div class="contagion__icon">
+                                    <img src="/static/assets/img/contagion/contagion2.png" alt="">
+                                </div>
+                                <h3>Personal Contact</h3>
+                                <p>Avoiding contact with others and visits to medical facilities will allow.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single__contagion mt-lg-5 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="contagion__icon">
+                                    <img src="/static/assets/img/contagion/contagion3.png" alt="">
+                                </div>
+                                <h3>Air Transmission</h3>
+                                <p>Via respiratory droplets produced when infected person coughs or sneezes.</p>
+                            </div>
+                            <div class="single__contagion wow fadeInUp" data-wow-delay=".9s">
+                                <div class="contagion__icon">
+                                    <img src="/static/assets/img/contagion/contagion4.png" alt="">
+                                </div>
+                                <h3>Contaminate Object </h3>
+                                <p>Call in advance and tell your provider of any recent travel or contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="title white__title ml-lg-5 wow fadeInRight">
+                        <p class="title__top">Covid-19 Contagion</p>
+                        <h2>How does novel coronavirus spread?</h2>
+                        <h4>Health experts are still learning the details. Currently, it is thought to spread:</h4>
+                        <div class="space-30"></div>
+                        <div class="points">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Via respiratory droplets produced when an infected person coughs or sneezes.</li>
+                                <li><i class="fas fa-check"></i>Between people who are in close contact with one another (within about 6 feet).</li>
+                            </ul>
+                        </div>
+                        <div class="space-50"></div>
+                        <a href="#" class="cbtn btn1">How to Prevent</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="contagion__img contagion__img1">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="contagion__img contagion__img2">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="contagion__img contagion__img3">
+    </div>
+    <!--::::: CONTAGION AREA END :::::::-->
+
+    <!--::::: PREVENTIONS AREA START :::::::-->
+    <div class="preventions__area padding-top" id="prevention">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 text-center m-auto">
+                    <div class="title wow fadeInDown">
+                        <p class="title__top">Covid-19 Preventions</p>
+                        <h2>How can I protect myself from Covid-19?</h2>
+                        <h4>If you are traveling overseas (to China but also to other places) <br>follow the CDC’s guidance: </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="space-50"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="do__lists">
+                        <h2 class="should__do wow fadeInUp" data-wow-delay=".3s">What you <span>should do:</span></h2>
+                        <div class="single__list wow fadeInUp" data-wow-delay=".5s">
+                            <div class="single__list__icon">
+                                <img src="/static/assets/img/service/service1.png" alt="">
+                            </div>
+                            <h3>Wear Face Mask</h3>
+                            <p>Wear a properly fitted mask when physical distancing is not possible.</p>
+                        </div>
+                        <div class="single__list wow fadeInUp" data-wow-delay=".7s">
+                            <div class="single__list__icon">
+                                <img src="/static/assets/img/service/service2.png" alt="">
+                            </div>
+                            <h3>Cover Face When Coughing</h3>
+                            <p>Cover your mouth/nose with a tissue or sleeve when coughing or sneezing.</p>
+                        </div>
+                        <div class="single__list wow fadeInUp" data-wow-delay=".9s">
+                            <div class="single__list__icon">
+                                <img src="/static/assets/img/service/service3.png" alt="">
+                            </div>
+                            <h3>Wash Your Hand Frequently</h3>
+                            <p>Wash hands often with soap and water. If not available, use hand sanitizer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="do__lists">
+                        <h2 class="should__dont wow fadeInUp" data-wow-delay=".3s">What you <span>shouldn’t do:</span></h2>
+                        <div class="single__list wow fadeInUp" data-wow-delay=".5s">
+                            <div class="single__list__icon">
+                                <img src="/static/assets/img/service/service4.png" alt="">
+                            </div>
+                            <h3>Avoid Animal Contact</h3>
+                            <p>The virus that causes COVID-19 can spread from people to animals.</p>
+                        </div>
+                        <div class="single__list wow fadeInUp" data-wow-delay=".7s">
+                            <div class="single__list__icon">
+                                <img src="/static/assets/img/service/service5.png" alt="">
+                            </div>
+                            <h3>Avoid Markets and Crowd</h3>
+                            <p>Keep physical distance of at least 1 metre from others.</p>
+                        </div>
+                        <div class="single__list wow fadeInUp" data-wow-delay=".9s">
+                            <div class="single__list__icon">
+                                <img src="/static/assets/img/service/service6.png" alt="">
+                            </div>
+                            <h3>Seek Medical Care</h3>
+                            <p>If you have a fever, cough and difficulty breathing, seek medical attention immediately.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="prevention__img prevention__img1">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="prevention__img prevention__img2">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="prevention__img prevention__img3">
+    </div>
+    <!--::::: PREVENTIONS AREA END :::::::-->
+
+
+    <!--::::: BLOG AREA START :::::::-->
+    <div class="blog__area section-padding" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="title wow fadeInLeft">
+                        <p class="title__top">State wise Covid-19 Status</p>
+                        <h2>Stay updated with our news feed.</h2>
+                        <h4> Get recent records of covid cases state wise!
+                        stay home stay safe.</h4>
+                        <div class="space-30"></div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-6">
+                    <div class="blog__lists ml-lg-5 wow fadeInRight" data-wow-delay=".4s">
+                        <div>
+      <table class="table">
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Active</th>
+      <th>Confirmed</th>
+      <th>Recovered</th>
+      <th>Deaths</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key, value in state.items  %}
+      <tr>
+        <td>{{value.state}}</td>
+        <td>{{value.active}}</td>
+        <td>{{value.confirmed}}</td>
+        <td>{{value.recovered}}</td>
+        <td>{{value.deaths}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="blog__img blog__img1">
+        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="blog__img blog__img2">
+    </div>
+    <!--::::: BLOG AREA END :::::::-->
+
+    <!--::::: CTA AREA  START::::::-->
+    <div class="cta__area theme__bg2__haf">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta">
+                        <div class="cta_wrap">
+                            <div class="row">
+                                <div class="col-lg-8 m-auto text-center">
+                                    <div class="title">
+                                        <h2>Want to test Covid-19?</h2>
+                                        <h4>Our goal at Our World in Data is to provide testing data over time for many countries around the world.</h4>
+                                        <div class="space-30"></div>
+                                        
+                                        <div class="btn__group">
+                                            <a href="#" class="cbtn emergency_btn">
+                                                <img class="btn__icon" src="/static/assets/img/icon/alert__phone.svg" alt=""> 
+                                                <img class="btn__hover__icon" src="/static/assets/img/icon/alert__phone__white.svg" alt=""> 
+                                                 Call For Test
+                                            </a>
+                                            <a href="#" class="cbtn emergency_btn">
+                                                <img class="btn__icon" src="/static/assets/img/icon/calender__red.png" alt=""> 
+                                                <img class="btn__hover__icon" src="/static/assets/img/icon/calender.png" alt=""> 
+                                                 Book Doctor
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="cta__img cta__img1">
+                        <img src="/static/assets/img/shape/shape__white2.png" alt="" class="cta__img cta__img2">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--::::: CTA AREA END :::::::-->
+
+
+    <!--:::::FOOTER AREA START :::::::-->
+    <div class="footer__area padding-top white">
+        <div class="container">
+            <div class="row jusify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <h3>Corona Services and Updates</h3>
+                    <div class="footer__dsec"><p>Corona Services and Updates is a medium through which people can get all the important
+						information and recent trends related to Covid-19 pandemic. This website also allows visitors
+						to get hospital wise healtchcare services status i.e covid beds, ventilators, oxygen beds.
+						This website is an all in one package for Covid related information.</p></div>
+
+                   
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <div class="single__footer ml-lg-5">
+                        <h3>About Us</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#symptoms">Symptoms</a></li>
+                            <li><a href="#blog">State wise status</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single__footer ml-lg-5">
+                        <h3>Usefull Links</h3>
+                        <ul>
+                            <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">WHO Information</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Coronavirus">Covid-19 Wikipedia</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="https://edition.cnn.com/interactive/2020/health/coronavirus-maps-and-cases/">CNN News</a></li>
+                            <li><a href="#">Worldometer Info</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="single__footer">
+                        <h3>Contact Us</h3>
+                        <div class="single__contact">
+                            <div class="single__contact__icon">
+                                <img src="/static/assets/img/icon/phone__white.png" alt="">
+                            </div>
+                            <a href="tell:+91-6201394464">+91-6201394464</a>
+                        </div>
+                        <div class="single__contact">
+                            <div class="single__contact__icon">
+                                <i class="fas fa-map-marker-alt"></i>
+									<img src="/static/assets/img/icon/loc_white.png" alt="">
+                            </div>
+                            <p>Bara Bazar Darbhanga, Anmol jewellers, Bihar</p>
+                        </div>
+                        <div class="single__contact">
+                            <div class="single__contact__icon">
+                                <i class="fas fa-envelope"></i>
+									<img src="/static/assets/img/icon/email.png" alt="">
+                            </div>
+                            <a href="mailto:ritukataria987@gmail.com">ritukataria987@gmail.com</a>
+                            <a href="mailto:ritukataria145@gmail.com">ritukataria145@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__seperator"></div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p>&copy; Corona Services and Updates. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="footer_shape  footer_shapes2" src="{% static 'assets/img/shape/shape__white1.png' %}" alt="">
+        <img class="footer_shape  footer_shapes3" src="{% static 'assets/img/shape/shape__white2.png' %}" alt="">
+        <img class="footer_shape  footer_shapes4" src="{% static 'assets/img/shape/shape__white2.png' %}" alt="">
+        <img class="footer_shape  footer_shapes5" src="{% static 'assets/img/shape/shape__white2.png' %}" alt="">
+    </div>
+    <!--:::::FOOTER AREA END :::::::-->
+
+
+    <!--:::::ALL JS FILES :::::::-->
+    <script src="{% static 'assets/js/jQuery.2.1.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nav.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/stellarnav.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.counterup.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body><!--BODY END-->
+</html><!--HTML END-->

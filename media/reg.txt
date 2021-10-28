@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock title %}
+{% block body %}
+<h1>Register</h1>
+<div>
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<p>{{ register_form.email.label }}</p>
+<p>{{ register_form.email }}</p>
+<p>{{ register_form.name.label }}</p>
+<p>{{ register_form.name }}</p>
+<p>{{ register_form.address.label }}</p>
+<p>{{ register_form.address }}</p>
+<p>{{ register_form.phone.label }}</p>
+<p>{{ register_form.phone }}</p>
+<p>{{ register_form.password1.label }}</p>
+<p>{{ register_form.password1 }}</p>
+<p>{{ register_form.password2.label }}</p>
+<p>{{ register_form.password2 }}</p>
+<p>{{ register_form.file.label }}</p>
+<p>{{ register_form.file }}</p>
+
+{%for error in register_form.errors%}
+<p style="color: red">{{error}}</p>
+{%endfor%}
+<button type="submit">submit</button>
+</form>
+</div>
+{% endblock body %}

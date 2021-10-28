@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!--::::: CSS FILES:::::::-->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/stellarnav.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/space__grotesk.css' %}">
+    <link rel="stylesheet" href="{% static 'assets//css/typography.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/inner.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+    <title>{% block title %}{% endblock title %} | Corona Services and Updates</title>
+  </head>
+  <body>
+  <!--PRELAODER START-->
+     <div class="preloader">
+         <div class="preloader__container">
+            <img src="{% static 'assets/img/icon/big__virous.png' %}" alt="">
+         </div>
+     </div>
+    <!--PRELAODER END-->
+<!--:::::HEADER AREA START :::::::-->
+      <div class="header__area header__absolute" id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-5 col-xl-3 align-self-center">
+                    <a href="/" class="logo"><img padding="20%" src="{% static 'assets/img/icon/big__virous.png' %}" alt="" width="10%" height="10%">Corona Services and Updates</a>
+                </div>
+                <div class="col-6 col-md-7 col-xl-6 text-center align-self-center">
+                    <div class="main__menu">
+                        <div class="stellarnav">
+                            <ul class="navclass" id="scroll">
+                                <li><a href="/">Home</a>
+                                    <ul>
+                                        <li><a href="#about">About</a></li>
+                                        <li><a href="#symptoms">Symptoms</a></li>
+                                        <li><a href="#blog">State wise status</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/covid_hospitals">Covid-19 Hospitals</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                                <li><a href="/about">Guidelines</a></li>
+                                <li><a href="/login">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-3 col-xl-3 align-self-center text-right">
+                    <a href="/register" class="cbtn emergency_btn">
+                        <img class="btn__icon" src="{% static 'assets/img/icon/reg.png' %}" alt="" width="10%" height="10%"> 
+                        <img class="btn__hover__icon" src="{% static 'assets/img/icon/alert__phone__white.svg' %}" alt=""> 
+                            Register Hospital
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--::::: HEADER AREA END :::::::-->
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% block body %}{% endblock body %}
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!--:::::ALL JS FILES :::::::-->
+    <script src="{% static 'assets/js/jQuery.2.1.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nav.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/stellarnav.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.counterup.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  
+  
+
+  </body>
+</html>

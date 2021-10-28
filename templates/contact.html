@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock title %}
+{% block body %}
+<h1 style="padding:40px;"><b></b></h1>
+<div class="container-fluid px-0 mb-3">
+<img src="/static/contactus.jpg" class="d-block w-100", alt="...">
+</div>
+<div class="container" style="margin-top:20px;">
+<h1 class="text-center">Feedback</h1>
+<form method="post" action="/contact">
+{% csrf_token %}
+  <div class="row g-3">
+    <div class="col">
+    <label for="exampleInputfirstname" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="exampleInputfirstname" placeholder="First name" name="firstname" aria-label="First name">
+    </div>
+    <div class="col">
+    <label for="examplelastname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="exampleInputlastname" placeholder="Last name" name="lastname" aria-label="Last name">
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email address" name="email" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Contact Number</label>
+    <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter contact number">
+  </div>
+  <div class="form-floating">
+  <textarea class="form-control" placeholder="Give your Remark" id="floatingTextarea2" name="remark" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Remark</label>
+</div>
+  <button type="submit" class="btn btn-dark" style="margin-top:20px;">Submit</button>
+</form>
+</div>
+{% endblock body %}

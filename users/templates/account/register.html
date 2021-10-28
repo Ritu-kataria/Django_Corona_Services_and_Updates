@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock title %}
+{% block body %}
+<head>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/static/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+</head>
+<style>
+img.vert-move {
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+}
+img.vert-move {
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+</style>
+    <h1 style="padding:30px;"><b></b></h1>
+    <h1 style="padding:30px;"><b></b></h1>
+    <div class="main1">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container2">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form" action="" enctype="multipart/form-data">
+						    {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-hospital"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Hospital Name" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="phone" name="phone" id="phone" pattern= "^[6789]\d{9}$" placeholder="Contact number" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="address"><i class="zmdi zmdi-pin"></i></label>
+                                <input type="textarea" name="address" id="address" placeholder="Address" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password1" id="pass" placeholder="Password" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="password2" id="re_pass" placeholder="Repeat password" required="true"/>
+                            </div>
+							<div class="form-group">
+                                <label for="file"><i class="zmdi zmdi-file"></i></label>
+                                <input type="file" name="file" id="file" placeholder="Upload File" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                               <!--<label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>--> 
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" style="background-color: #EB4559; color:white" value="Register"/>
+                            </div>
+                        </form>
+                        {%for error in register_form.errors%}
+						    <p style="color: red">{{error}}</p>
+					    {%endfor%}
+                    </div>
+					<img src="/static/assets/img/shape/shape__white1.png" alt="" class="shape shape1">
+					<img src="/static/assets/img/shape/shape__white2.png" alt="" class="shape shape2">
+                    <div class="signup-image">
+                        <figure><img class="vert-move" src="/static/signup.jpg" alt="sing up image"></figure>
+                        <a href="/login" class="signup-image-link">I am already member</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>   
+	</div>
+    <h1 style="padding:10px;"><b></b></h1>
+    <!-- JS -->
+    <script src="/static/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/assets/js/main1.js"></script>
+{% endblock body %}
